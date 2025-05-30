@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import { useEffect, useState } from "react";
 
-const LOADER_SVG = (
+const LOGO_SVG = (
   <svg
     fill="#ffffff"
     height="150px"
@@ -28,11 +28,38 @@ const LOADER_SVG = (
 );
 
 const spin = keyframes`
-  from {
+  0% {
     transform: rotateY(0deg);
+    opacity: 1;
   }
-  to {
+  25% {
+    transform: rotateY(90deg);
+  }
+  50% {
+    transform: rotateY(90deg);
+  }
+  100% {
+    transform: rotateY(90deg);
+    opacity: 0;
+  }
+`;
+
+const spin2 = keyframes`
+  0% {
+    transform: rotateY(270deg);
+    opacity: 1;
+  }
+  25% {
+    transform: rotateY(270deg);
+    opacity: 1;
+  }
+  50% {
+    transform: rotateY(270deg);
+    opacity: 1;
+  }
+  100% {
     transform: rotateY(360deg);
+    opacity: 1;
   }
 `;
 
@@ -46,11 +73,18 @@ const FullScreenWrapper = styled.div`
   z-index: 9999;
 `;
 
-const StyledLoader = styled.span`
-  animation: ${spin} 2s linear infinite;
+const StyledLogo = styled.span`
+  animation: ${spin} 3s linear infinite;
   width: 10rem;
   height: auto;
   padding: 1rem;
+`;
+
+const StyledName = styled.h1`
+  animation: ${spin2} 2s linear infinite;
+  position: fixed;
+  font-size: 3rem;
+  color: white;
 `;
 
 export function Loader() {
@@ -67,7 +101,7 @@ export function Loader() {
 
       setTimeout(() => {
         setShowLoader(false);
-      }, 3000);
+      }, 2000);
     }
   }, []);
 
@@ -75,7 +109,8 @@ export function Loader() {
 
   return (
     <FullScreenWrapper>
-      <StyledLoader>{LOADER_SVG}</StyledLoader>
+      <StyledLogo>{LOGO_SVG}</StyledLogo>
+      <StyledName>Tattoo</StyledName>
     </FullScreenWrapper>
   );
 }
