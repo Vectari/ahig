@@ -2,6 +2,7 @@ import { createRoot } from "react-dom/client";
 import { createGlobalStyle } from "styled-components";
 // import { theme } from "./theme";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { LanguageProvider } from "./contexts/LanguageProvider";
 import { NavBar } from "./components/NavBar/NavBar";
 import { Footer } from "./components/Footer/Footer";
 import { Home } from "./view/Home/Home";
@@ -62,7 +63,9 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <>
-    <GlobalStyles />
-    <RouterProvider router={router} />
+    <LanguageProvider>
+      <GlobalStyles />
+      <RouterProvider router={router} />
+    </LanguageProvider>
   </>
 );
