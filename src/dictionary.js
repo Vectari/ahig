@@ -4,13 +4,13 @@ export const dictionary = {
       pl: "Strona Główna",
       en: "Home Page",
     },
-    team: {
-      pl: "Nas Zespół",
-      en: "Our Team",
+    services: {
+      pl: "Usługi",
+      en: "Services",
     },
-    price: {
-      pl: "Cennik",
-      en: "Price List",
+    team: {
+      pl: "Nasz Zespół",
+      en: "Our Team",
     },
     gallery: {
       pl: "Galeria",
@@ -19,6 +19,10 @@ export const dictionary = {
     contact: {
       pl: "Kontakt",
       en: "Contact",
+    },
+    blog: {
+      pl: "Blog",
+      en: "Blog",
     },
   },
 };

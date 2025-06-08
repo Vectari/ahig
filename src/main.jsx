@@ -6,6 +6,12 @@ import { LanguageProvider } from "./contexts/LanguageProvider";
 import { NavBar } from "./components/NavBar/NavBar";
 import { Footer } from "./components/Footer/Footer";
 import { Home } from "./view/Home/Home";
+import { Services } from "./view/Services/Services";
+import { Team } from "./view/Team/Team";
+import { Gallery } from "./view/Gallery/Gallery";
+import { Contact } from "./view/Contact/Contact";
+import { Blog } from "./view/Blog/Blog";
+import { Alert } from "./view/Alert/Alert";
 
 const GlobalStyles = createGlobalStyle`
 body {
@@ -33,30 +39,30 @@ const router = createBrowserRouter([
           </>
         ),
       },
-      // {
-      //   path: "/info",
-      //   element: <Info />,
-      // },
-      // {
-      //   path: "/pricelist",
-      //   element: <PriceList />,
-      // },
-      // {
-      //   path: "/reviews",
-      //   element: <Reviews />,
-      // },
-      // {
-      //   path: "/contact",
-      //   element: <Contact />,
-      // },
-      // {
-      //   path: "/map",
-      //   element: <Map />,
-      // },
-      // {
-      //   path: "/alert",
-      //   element: <Alert />,
-      // },
+      {
+        path: "/services",
+        element: <Services />,
+      },
+      {
+        path: "/team",
+        element: <Team />,
+      },
+      {
+        path: "/gallery",
+        element: <Gallery />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
+      },
+      {
+        path: "/alert",
+        element: <Alert />,
+      },
     ],
   },
 ]);
