@@ -1,4 +1,7 @@
 export const dictionary = {
+  width: {
+    tablet_plus: "768px",
+  },
   NavBar: {
     home: {
       pl: "Strona Główna",
