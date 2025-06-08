@@ -3,6 +3,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "../../hooks/useTranslation";
 import { LanguageSelect } from "../LanguageSelect/LanguageSelect";
+import dictionary from "../../dictionary";
 
 const NavBarWrapper = styled.nav`
   display: flex;
@@ -39,7 +40,7 @@ const StyledNavLink = styled(NavLink)`
   color: grey;
   margin-left: 0.8rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${dictionary.width.tablet_plus}) {
     display: inline;
   }
 
@@ -80,7 +81,7 @@ const StyledFontIcon = styled.span`
     transition: 0.3s;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: ${dictionary.width.tablet_plus}) {
     display: none;
   }
 `;
