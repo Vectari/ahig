@@ -24,6 +24,11 @@ const StyledLogoContainer = styled.div`
 const NavLinkWrapper = styled.div`
   display: ${(props) => (props.active ? "block" : "none")};
   text-align: center;
+
+  @media (min-width: 768px) {
+    display: inline;
+    font-size: 1rem;
+  }
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -33,6 +38,10 @@ const StyledNavLink = styled(NavLink)`
   transition: 0.2s;
   color: grey;
   margin-left: 0.8rem;
+
+  @media (min-width: 768px) {
+    display: inline;
+  }
 
   &:hover {
     transition: 0.3s;
@@ -71,7 +80,7 @@ const StyledFontIcon = styled.span`
     transition: 0.3s;
   }
 
-  @media (min-width: 376px) {
+  @media (min-width: 768px) {
     display: none;
   }
 `;
