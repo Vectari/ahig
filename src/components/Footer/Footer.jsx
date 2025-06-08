@@ -17,7 +17,9 @@ const StyledFooterWrapper = styled.div`
   }
 `;
 
-const StyledLogoWrapper = styled.div``;
+const StyledLogoWrapper = styled.div`
+  text-align: center;
+`;
 
 const StyledLeftSide = styled.div`
   @media (min-width: ${dictionary.width.tablet_plus}) {
