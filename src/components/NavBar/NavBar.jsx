@@ -4,21 +4,35 @@ import { NavLink } from "react-router-dom";
 import { useTranslation } from "../../hooks/useTranslation";
 import { LanguageSelect } from "../LanguageSelect/LanguageSelect";
 import dictionary from "../../dictionary";
+import { theme } from "../../theme";
 
 const NavBarWrapper = styled.nav`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background: yellow;
+  background: ${theme.navbar_background};
+  border-bottom: 1px solid ${theme.border};
   font-size: 1rem;
   padding: 1rem 3rem;
   position: relative;
   padding: 1rem;
 `;
 
+const LanguageSelectWrapper = styled.span`
+  position: absolute;
+  font-size: 1rem;
+  align-self: flex-end;
+  margin-right: 3rem;
+  margin-top: -0.35rem;
+
+  @media (min-width: ${dictionary.width.tablet_plus}) {
+    display: none;
+  }
+`;
+
 const StyledLogoContainer = styled.div`
-  align-self: start;
+  align-self: flex-start;
   font-weight: bold;
 `;
 
@@ -26,9 +40,23 @@ const NavLinkWrapper = styled.div`
   display: ${(props) => (props.active ? "block" : "none")};
   text-align: center;
 
-  @media (min-width: 768px) {
-    display: inline;
-    font-size: 1rem;
+  @media (min-width: ${dictionary.width.tablet_plus}) {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-end;
+    margin-bottom: -1rem;
+    margin-top: -2rem;
+    font-size: 1.2rem;
+
+    img {
+      margin-left: 0.5rem;
+    }
+  }
+
+  @media (max-width: ${dictionary.width.tablet_plus}) {
+    img {
+      display: none;
+    }
   }
 `;
 
@@ -37,7 +65,7 @@ const StyledNavLink = styled(NavLink)`
   margin: 1rem auto;
   text-decoration: none;
   transition: 0.2s;
-  color: grey;
+  color: ${theme.fonts};
   margin-left: 0.8rem;
 
   @media (min-width: ${dictionary.width.tablet_plus}) {
@@ -46,12 +74,12 @@ const StyledNavLink = styled(NavLink)`
 
   &:hover {
     transition: 0.3s;
-    color: black;
+    color: ${theme.border};
   }
 
   &.active {
     pointer-events: none;
-    color: red;
+    color: ${theme.primary};
   }
 
   /* &:first-child {
@@ -72,12 +100,12 @@ const StyledFontIcon = styled.span`
   position: absolute;
   right: 1.5rem;
   top: -0.1rem;
-  color: violet;
+  color: ${theme.fonts};
   font-size: 2.6rem;
   cursor: pointer;
 
   &:hover {
-    color: red;
+    color: ${theme.border};
     transition: 0.3s;
   }
 
@@ -95,6 +123,9 @@ export function NavBar() {
       <StyledLogoContainer>
         {/* <Logo to={"/"} /> */} <NavLink to={"/"}>LOGO</NavLink>
       </StyledLogoContainer>
+      <LanguageSelectWrapper>
+        <LanguageSelect />
+      </LanguageSelectWrapper>
       <StyledFontIcon onClick={() => setActive(!active)}>
         &equiv;
       </StyledFontIcon>
