@@ -3,10 +3,11 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from "../../hooks/useTranslation";
 import styled from "styled-components";
 import dictionary from "../../dictionary";
+import { theme } from "../../theme";
 
 const StyledFooterWrapper = styled.div`
   display: block;
-  border-top: 2px solid black;
+  border-top: 2px solid ${theme.border};
   margin-top: 3rem;
   padding: 0 1rem;
   justify-content: space-between;
@@ -55,22 +56,22 @@ const StyledNavLinkWrapper = styled.div`
 
   a {
     text-decoration: none;
-    color: yellow;
+    color: ${theme.fonts};
 
     &:hover {
-      color: red;
+      color: ${theme.border};
       transition: 0.3s;
     }
 
     &.active {
       pointer-events: none;
-      color: green;
+      color: ${theme.primary};
     }
   }
 
   .creator {
     border-top: 1px solid pink;
-    color: red;
+    color: ${theme.border};
     margin-top: 2rem;
     font-size: 0.5rem;
   }
