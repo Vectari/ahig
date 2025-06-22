@@ -15,7 +15,9 @@ const NavBarWrapper = styled.nav`
   border-bottom: 1px solid ${theme.border};
   font-size: 1rem;
   padding: 1rem 3rem;
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   padding: 1rem;
 `;
 
