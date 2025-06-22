@@ -4,6 +4,7 @@ import { Loader } from "../../components/Loader/Loader";
 import { theme } from "../../theme";
 import { useTranslation } from "../../hooks/useTranslation";
 import hero from "../../media/hero.jpg";
+import logo from "../../media/tattoo_machine_svg_white.svg";
 import home_one from "../../media/home_one.jpg";
 import home_two from "../../media/home_two.jpg";
 import home_three from "../../media/home_three.jpg";
@@ -35,6 +36,7 @@ const HeroImg = styled.div`
 
 const HeroLogo = styled.div`
   background-color: black;
+  background-image: ${({ img }) => `url(${img})`};
   width: 180px;
   height: 180px;
   border-radius: 50%;
@@ -72,11 +74,12 @@ const HeroButton = styled.button`
   }
 `;
 
-const FirstDescription = styled.div`
+const Description = styled.div`
   margin: 3rem auto;
   width: 90%;
   text-align: center;
   font-size: 1.3rem;
+  line-height: 2.3rem;
 
   @media (min-width: ${dictionary.width.tablet_plus}) {
     font-size: 1.8rem;
@@ -104,6 +107,7 @@ const PhotoItem = styled.div`
   align-items: center;
   margin-bottom: 1.5rem;
   text-align: center;
+  font-size: 1.1rem;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
@@ -122,6 +126,7 @@ const PhotoItem = styled.div`
 export function Home() {
   const { translate } = useTranslation();
   const [visibleItems, setVisibleItems] = useState([false, false, false]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const photoRefs = [useRef(null), useRef(null), useRef(null)];
 
   useEffect(() => {
@@ -152,7 +157,7 @@ export function Home() {
     return () => {
       observers.forEach((observer) => observer.disconnect());
     };
-  }, []);
+  }, [photoRefs]);
 
   return (
     <>
@@ -160,15 +165,13 @@ export function Home() {
       <HomePageWrapper>
         <HeroWrapper>
           <HeroImg img={hero} />
-          <HeroLogo />
+          <HeroLogo img={logo} />
           <a href="https://booksy.com/pl-pl/" target="_blank">
             <HeroButton>{translate("Home", "Hero_Button")}</HeroButton>
           </a>
         </HeroWrapper>
 
-        <FirstDescription>
-          {translate("Home", "FirstDescription")}
-        </FirstDescription>
+        <Description>{translate("Home", "FirstDescription")}</Description>
 
         <PhotosWrapper>
           {[home_one, home_two, home_three].map((imgSrc, index) => (
@@ -187,6 +190,8 @@ export function Home() {
             </PhotoItem>
           ))}
         </PhotosWrapper>
+
+        <Description>{translate("Home", "SecondDescription")}</Description>
       </HomePageWrapper>
     </>
   );
