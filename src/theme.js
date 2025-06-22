@@ -4,5 +4,5 @@ export const theme = {
   btn_background: "#333334",
   border: "#616467",
   fonts: "#d2d6da",
-  primary: "#2b66ff",
+  primary: "#148f77",
 };
