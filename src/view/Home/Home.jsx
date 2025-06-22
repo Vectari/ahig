@@ -7,6 +7,7 @@ import hero from "../../media/hero.jpg";
 import home_one from "../../media/home_one.jpg";
 import home_two from "../../media/home_two.jpg";
 import home_three from "../../media/home_three.jpg";
+import { useEffect, useRef, useState } from "react";
 
 const HomePageWrapper = styled.div`
   display: flex;
@@ -103,15 +104,55 @@ const PhotoItem = styled.div`
   align-items: center;
   margin-bottom: 1.5rem;
   text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
   @media (min-width: ${dictionary.width.tablet_plus}) {
     margin-bottom: 0;
-    margin-right: 1.5rem; /* odstęp między zdjęciami w rzędzie */
+    margin-right: 1rem;
   }
 `;
 
 export function Home() {
   const { translate } = useTranslation();
+  const [visibleItems, setVisibleItems] = useState([false, false, false]);
+  const photoRefs = [useRef(null), useRef(null), useRef(null)];
+
+  useEffect(() => {
+    const observers = photoRefs.map((ref, index) => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setVisibleItems((prev) => {
+              const updated = [...prev];
+              updated[index] = true;
+              return updated;
+            });
+            observer.unobserve(entry.target); // odsubskrybuj po pojawieniu się
+          }
+        },
+        {
+          threshold: 0.1, // gdy 10% elementu jest widoczne
+        }
+      );
+
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+
+      return observer;
+    });
+
+    return () => {
+      observers.forEach((observer) => observer.disconnect());
+    };
+  }, []);
 
   return (
     <>
@@ -130,18 +171,21 @@ export function Home() {
         </FirstDescription>
 
         <PhotosWrapper>
-          <PhotoItem>
-            <img src={home_one} alt="" />
-            <p>{translate("Home", "PhotoSloganOne")}</p>
-          </PhotoItem>
-          <PhotoItem>
-            <img src={home_two} alt="" />
-            <p>{translate("Home", "PhotoSloganTwo")}</p>
-          </PhotoItem>
-          <PhotoItem>
-            <img src={home_three} alt="" />
-            <p>{translate("Home", "PhotoSloganThree")}</p>
-          </PhotoItem>
+          {[home_one, home_two, home_three].map((imgSrc, index) => (
+            <PhotoItem
+              key={index}
+              ref={photoRefs[index]}
+              className={visibleItems[index] ? "visible" : ""}
+            >
+              <img src={imgSrc} alt="" />
+              <p>
+                {translate(
+                  "Home",
+                  `PhotoSlogan${["One", "Two", "Three"][index]}`
+                )}
+              </p>
+            </PhotoItem>
+          ))}
         </PhotosWrapper>
       </HomePageWrapper>
     </>
