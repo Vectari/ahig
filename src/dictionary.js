@@ -1,4 +1,13 @@
 export const dictionary = {
+  main_info: {
+    booksy_link: "https://booksy.com/pl-pl/",
+    name_one: "name_one",
+    phone_one: "111-111-111",
+    mail_one: "mail@one.com",
+    name_two: "name_two",
+    phone_two: "222-222-222",
+    mail_two: "mail@two.com",
+  },
   width: {
     tablet_plus: "768px",
   },
@@ -56,8 +65,16 @@ export const dictionary = {
   },
   Services: {
     Title: {
-      pl: "Cennik",
-      en: "Price List",
+      pl: "Usługi",
+      en: "Services",
+    },
+    DescriptionFirst: {
+      pl: "W naszym barbershopie łączymy klasykę z nowoczesnością, oferując najwyższej jakości usługi fryzjerskie i pielęgnacyjne. Dbamy o każdy detal, abyś czuł się pewnie i wyglądał świetnie.",
+      en: "At our barbershop, we blend tradition with modern style, offering top-quality haircuts and grooming services. We take care of every detail so you can feel confident and look your best.",
+    },
+    DescriptionSecond: {
+      pl: "Zapraszamy do umawiania wizyt!",
+      en: "We invite you to book your visit!",
     },
     Service: {
       pl: "Usługi",
