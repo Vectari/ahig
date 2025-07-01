@@ -29,7 +29,7 @@ const StyledLeftSide = styled.div`
 
 const StyledPhoneMailWrapper = styled.div`
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
 `;
 
 const StyledRightSide = styled.div`
@@ -94,8 +94,12 @@ export function Footer() {
           LOGO
         </StyledLogoWrapper>
         <StyledPhoneMailWrapper>
-          <p>123-123-123</p>
-          <p>mail@mail.com</p>
+          <p>{dictionary.main_info.name_one}</p>
+          <p>{dictionary.main_info.phone_one}</p>
+          <p>{dictionary.main_info.mail_one}</p>
+          <p>{dictionary.main_info.name_two}</p>
+          <p>{dictionary.main_info.phone_two}</p>
+          <p>{dictionary.main_info.mail_two}</p>
         </StyledPhoneMailWrapper>
       </StyledLeftSide>
       <StyledRightSide>
