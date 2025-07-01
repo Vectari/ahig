@@ -54,6 +54,40 @@ export const dictionary = {
       en: "At Barber’s Den, we believe true grooming is an art nurtured with passion and dedication. Our team consists of genuine barbering enthusiasts who constantly hone their skills through numerous courses, training sessions, and master workshops — both locally and internationally. This commitment keeps us up to date with the latest techniques and trends, enabling us to provide services of the highest quality. We focus on a personalized approach to every client, tailoring methods and products to enhance natural beauty and care for the health of hair and skin. In our work, we use only high-end cosmetics from trusted brands that ensure effectiveness and safety. Beyond expert haircuts and beard trims, we place great emphasis on grooming advice — guiding you on how to maintain your beard and hair at home to keep your look fresh and stylish every day. We are proud of the numerous awards and certificates our team has earned, reflecting our professionalism and dedication. Barber’s Den is where tradition meets modernity, and every detail shows our commitment to client comfort and satisfaction. Step into the world of true masculine style and care, where passion meets expertise.",
     },
   },
+  Services: {
+    Title: {
+      pl: "Cennik",
+      en: "Price List",
+    },
+    Service: {
+      pl: "Usługi",
+      en: "Services",
+    },
+    Price: {
+      pl: "Cena",
+      en: "Price",
+    },
+    Cut: {
+      pl: "Strzyżenie męskie",
+      en: "Men's haircut",
+    },
+    BeardTrim: {
+      pl: "Trymowanie brody",
+      en: "Beard trim",
+    },
+    CutAndBeard: {
+      pl: "Strzyżenie + broda",
+      en: "Haircut + beard",
+    },
+    Shave: {
+      pl: "Golenie brzytwą",
+      en: "Straight razor shave",
+    },
+    KidsCut: {
+      pl: "Strzyżenie dziecięce",
+      en: "Kids' haircut",
+    },
+  },
 };
 
 export default dictionary;
