@@ -4,7 +4,7 @@ import { Loader } from "../../components/Loader/Loader";
 import { theme } from "../../theme";
 import { useTranslation } from "../../hooks/useTranslation";
 import hero from "../../media/hero.jpg";
-import logo from "../../media/tattoo_machine_svg_white.svg";
+import logo from "../../media/logo.png";
 import home_one from "../../media/home_one.jpg";
 import home_two from "../../media/home_two.jpg";
 import home_three from "../../media/home_three.jpg";
@@ -37,6 +37,9 @@ const HeroImg = styled.div`
 const HeroLogo = styled.div`
   background-color: black;
   background-image: ${({ img }) => `url(${img})`};
+  background-size: 75%;
+  background-position: center;
+  background-repeat: no-repeat;
   width: 180px;
   height: 180px;
   border-radius: 50%;
