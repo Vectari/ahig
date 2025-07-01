@@ -195,11 +195,6 @@ export function Contact() {
       <StyledContactWrapper>
         <StyledLeftWrapper>
           <div>
-            <h3>Adres:</h3>
-            Nazwa
-            <p>&quot;Nazwa&quot;</p>
-            ul. Ulica 66/6
-            <br /> 12-222 Miasto
             <h3>Kontakt:</h3>
             {/* <StyledContact href={mailtoUrl}>
         {dictionary.main_info.email}
@@ -209,6 +204,11 @@ export function Contact() {
       <StyledContact href={`tel:${phoneNumber}`}>
         {dictionary.main_info.phone_numer}
       </StyledContact> */}
+            <h3>Adres:</h3>
+            Nazwa
+            <p>&quot;Nazwa&quot;</p>
+            ul. Ulica 66/6
+            <br /> 12-222 Miasto
           </div>
 
           <StyledMapWrapper>
