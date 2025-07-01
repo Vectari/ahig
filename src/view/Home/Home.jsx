@@ -169,7 +169,7 @@ export function Home() {
         <HeroWrapper>
           <HeroImg img={hero} />
           <HeroLogo img={logo} />
-          <a href="https://booksy.com/pl-pl/" target="_blank">
+          <a href={dictionary.main_info.booksy_link} target="_blank">
             <HeroButton>{translate("Home", "Hero_Button")}</HeroButton>
           </a>
         </HeroWrapper>
