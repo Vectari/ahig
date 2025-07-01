@@ -105,6 +105,68 @@ export const dictionary = {
       en: "Kids' haircut",
     },
   },
+  Contact: {
+    Contact: {
+      pl: "Kontakt",
+      en: "Contact",
+    },
+    Address: {
+      pl: "Adres",
+      en: "Address",
+    },
+    Name: {
+      pl: "Imię",
+      en: "Name",
+    },
+    PhoneNumber: {
+      pl: "Numer kontaktowy",
+      en: "Phone number",
+    },
+    Email: {
+      pl: "Email",
+      en: "Email",
+    },
+    Message: {
+      pl: "Wiadomość",
+      en: "Message",
+    },
+    Send: {
+      pl: "Wyślij",
+      en: "Send",
+    },
+    Sending: {
+      pl: "Wysyłanie...",
+      en: "Sending...",
+    },
+    Sent: {
+      pl: "Wiadomość wysłana!",
+      en: "Message sent!",
+    },
+    Error: {
+      pl: "Błąd podczas wysyłania.",
+      en: "Error while sending.",
+    },
+    RequiredName: {
+      pl: "Imię jest wymagane",
+      en: "Name is required",
+    },
+    RequiredEmail: {
+      pl: "Email jest wymagany",
+      en: "Email is required",
+    },
+    RequiredMessage: {
+      pl: "Wiadomość jest wymagana",
+      en: "Message is required",
+    },
+    InvalidPhone: {
+      pl: "Nieprawidłowy format numeru",
+      en: "Invalid phone number format",
+    },
+    InvalidEmail: {
+      pl: "Nieprawidłowy format emaila",
+      en: "Invalid email format",
+    },
+  },
 };
 
 export default dictionary;

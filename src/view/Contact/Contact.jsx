@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import { theme } from "../../theme";
 import { Loader } from "../../components/Loader/Loader";
+import { useTranslation } from "../../hooks/useTranslation";
 
 // const mailtoUrl = `mail@mail`;
 // const phoneNumber = `123-123-123`;
@@ -155,6 +156,8 @@ const StyledContact = styled.a`
 `;
 
 export function Contact() {
+  const { translate } = useTranslation();
+
   const {
     register,
     handleSubmit,
@@ -195,7 +198,7 @@ export function Contact() {
       <StyledContactWrapper>
         <StyledLeftWrapper>
           <div>
-            <h3>Kontakt:</h3>
+            <h3>{translate("Contact", "Contact")}</h3>
             {/* <StyledContact href={mailtoUrl}>
         {dictionary.main_info.email}
       </StyledContact>
@@ -204,7 +207,7 @@ export function Contact() {
       <StyledContact href={`tel:${phoneNumber}`}>
         {dictionary.main_info.phone_numer}
       </StyledContact> */}
-            <h3>Adres:</h3>
+            <h3>{translate("Contact", "Address")}</h3>
             Nazwa
             <p>&quot;Nazwa&quot;</p>
             ul. Ulica 66/6
@@ -224,18 +227,20 @@ export function Contact() {
           <StyledForm onSubmit={handleSubmit(onSubmit)}>
             <StyledInput
               type="text"
-              placeholder="Imię"
-              {...register("name", { required: "Imię jest wymagane" })}
+              placeholder={translate("Contact", "Name")}
+              {...register("name", {
+                required: translate("Contact", "RequiredName"),
+              })}
             />
             {errors.name && <ErrorText>{errors.name.message}</ErrorText>}
 
             <StyledInput
               type="tel"
-              placeholder="Numer kontaktowy"
+              placeholder={translate("Contact", "PhoneNumber")}
               {...register("phoneNumber", {
                 pattern: {
                   value: /^\d{9}$/,
-                  message: "Nieprawidłowy format numeru",
+                  message: translate("Contact", "InvalidPhone"),
                 },
               })}
             />
@@ -245,33 +250,37 @@ export function Contact() {
 
             <StyledInput
               type="email"
-              placeholder="Email"
+              placeholder={translate("Contact", "Email")}
               {...register("email", {
-                required: "Email jest wymagany",
+                required: translate("Contact", "RequiredEmail"),
                 pattern: {
                   value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                  message: "Nieprawidłowy format emaila",
+                  message: translate("Contact", "InvalidEmail"),
                 },
               })}
             />
             {errors.email && <ErrorText>{errors.email.message}</ErrorText>}
 
             <StyledTextArea
-              placeholder="Wiadomość"
-              {...register("message", { required: "Wiadomość jest wymagana" })}
+              placeholder={translate("Contact", "Message")}
+              {...register("message", {
+                required: translate("Contact", "RequiredMessage"),
+              })}
             />
             {errors.message && <ErrorText>{errors.message.message}</ErrorText>}
 
             <StyledButton type="submit" disabled={status === "sending"}>
-              {status === "sending" ? "Wysyłanie..." : "Wyślij"}
+              {status === "sending"
+                ? translate("Contact", "Sending")
+                : translate("Contact", "Send")}
             </StyledButton>
 
             {status !== "idle" && (
               <StatusMessage status={status}>
                 {status === "sent"
-                  ? "Wiadomość wysłana!"
+                  ? translate("Contact", "Sent")
                   : status === "error"
-                  ? "Błąd podczas wysyłania."
+                  ? translate("Contact", "Error")
                   : ""}
               </StatusMessage>
             )}
